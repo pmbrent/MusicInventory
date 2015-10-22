@@ -23,11 +23,12 @@ class BandsController < ApplicationController
   end
 
   def edit
+    @band = Band.find(params[:id])
   end
 
   def update
-    @band = Band.new(band_params)
-    if @band.save
+    @band = Band.find(params[:id])
+    if @band.update(band_params)
       redirect_to band_url(@band.id)
     else
       render :edit
