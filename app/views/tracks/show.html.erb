@@ -1,6 +1,8 @@
 <h1> <%= @track.title %> </h1>
 <%= "from #{@track.album.title}" %>
+<% if @track.lyrics %>
 <br>
 <br>
 Lyrics:
 <%= @track.lyrics %>
+<% end %>
