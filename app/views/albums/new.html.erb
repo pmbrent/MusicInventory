@@ -1,12 +1,30 @@
-<h2>Add new album for <%= Band.find(params[:band_id]).name %></h2>
+<h2>Add new album to database</h2>
 
 <form action="<%= albums_url %>" method="POST">
   <%= authenticity_token %>
+  <label for="band_name">Band name:</label>
+  <select id="band_name" name="album[band_id]">
+    <%Band.all.each do |band|%>
+      <%if (band.id == params[:band_id].to_i)%>
+        <option value="<%=band.id%>" selected>
+          <%=band.name%>
+        </option>
+      <% else %>
+        <option value="<%=band.id%>">
+          <%=band.name %>
+        </option>
+      <% end %>
+    <% end %>
+  </select>
+  <br><br>
   <label for="album_title">Album title:</label>
   <input type="text"
          id="album_title"
          name="album[title]"
          value="<%=@album.title%>">
-  <input type="hidden" name="album[band_id]" value="<%=params[:band_id]%>">
+  <br>
+  <input type="radio" name="album[live]" value="true">Live</input>
+  <input type="radio" name="album[live]" value="false">Studio</input>
+  <br>
   <input type="submit" value="Submit">
 </form>
