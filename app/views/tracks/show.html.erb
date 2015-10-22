@@ -12,11 +12,19 @@
 </form>
 <br><br>
 <% if @track.lyrics %>
-<br>
-<br>
+<br><br>
 Lyrics:
 <%= @track.lyrics %>
+<br><br>
 <% end %>
+<b>Notes for <%= @track.title %></b>
+<br><br>
+<% @track.notes.each do |note| %>
+  <%= "\"#{note.content}\"" %>
+  <br>
+  <%= "   -- #{note.user.email}" %>
+  <br>
+<%end%>
 <br><br>
 <%= render '/notes/form', track: @track %>
 <br><br>
