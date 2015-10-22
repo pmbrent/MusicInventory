@@ -1,5 +1,7 @@
 class TracksController < ApplicationController
 
+  before_action :ensure_logged_in
+
   def new
     @track ||= Track.new
     @track.album_id ||= params[:album_id]

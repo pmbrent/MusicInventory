@@ -1,5 +1,7 @@
 class AlbumsController < ApplicationController
 
+  before_action :ensure_logged_in
+
   def new
     @album ||= Album.new
     @album.band_id ||= params[:band_id]
