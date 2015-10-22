@@ -1,5 +1,5 @@
 class AddIndexToSessionToken < ActiveRecord::Migration
   def change
-    add_index :users, :session_token, uniqueness: true
+    add_index :users, :session_token, unique: true
   end
 end
