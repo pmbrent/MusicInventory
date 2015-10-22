@@ -18,6 +18,6 @@ Lyrics:
 <%= @track.lyrics %>
 <% end %>
 <br><br>
-<%= render '/notes/form' %>
+<%= render '/notes/form', track: @track %>
 <br><br>
 <a href="<%=album_url(@track.album_id)%>">Back to album page</a>
