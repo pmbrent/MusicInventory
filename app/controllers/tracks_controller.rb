@@ -20,6 +20,12 @@ class TracksController < ApplicationController
     @track = Track.find(params[:id])
   end
 
+  def destroy
+  end
+
+  def update
+  end
+  
 private
   def track_params
     params.require(:track).permit(:album_id, :title, :bonus, :lyrics)

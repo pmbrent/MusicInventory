@@ -1,8 +1,22 @@
 <h1> <%= "Collected works of #{@band.name}" %> </h1>
 
+<form action="<%=band_url(@band.id)%>" method="POST">
+  <%= authenticity_token %>
+  <input type="submit" value="Delete band!"></input>
+  <input type="hidden" name="_method" value="DELETE">
+</form>
+<form action="<%=edit_band_url(@band.id)%>" method="GET">
+  <%= authenticity_token %>
+  <input type="hidden" name="_method" value="UPDATE">
+  <input type="submit" value="Edit band"></input>
+</form>
+
+<br>
 <% @band.albums.each do |album| %>
 <a href="<%=album_url(album.id)%>"> <%= album.title %> </a>
 <br>
 <% end %>
 <br>
 <a href="<%= new_band_album_url(@band.id) %>">Add new album!</a>
+<br><br>
+<a href="<%=bands_url%>">Back to bands index</a>

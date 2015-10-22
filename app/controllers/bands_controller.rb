@@ -18,11 +18,20 @@ class BandsController < ApplicationController
   end
 
   def destroy
+    Band.find(params[:id]).delete
+    redirect_to bands_url
+  end
 
+  def edit
   end
 
   def update
-
+    @band = Band.new(band_params)
+    if @band.save
+      redirect_to band_url(@band.id)
+    else
+      render :edit
+    end
   end
 
 private

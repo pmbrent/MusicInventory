@@ -1,11 +1,11 @@
-<h2>Add new album to database</h2>
+<h2>Add new album to database!</h2>
 
 <form action="<%= albums_url %>" method="POST">
   <%= authenticity_token %>
   <label for="band_name">Band name: </label>
   <select id="band_name" name="album[band_id]">
     <%Band.all.each do |band|%>
-      <%if (band.id == params[:band_id].to_i)%>
+      <%if (band.id == @album.band_id)%>
         <option value="<%=band.id%>" selected>
           <%=band.name%>
         </option>
