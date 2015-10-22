@@ -1,8 +1,12 @@
 <h1>Add new band to database!</h1>
 
-<form action="bands_url" method="POST">
+<form action="<%=bands_url%>" method="POST">
   <%=authenticity_token%>
-  
-
-
+  <label for="band_name">Band name: </label>
+  <input type="text"
+         id="band_name"
+         value="<%=@band.name%>"
+         name="band[name]"></input>
+  <br>
+  <input type="submit" value="Submit!">
 </form>

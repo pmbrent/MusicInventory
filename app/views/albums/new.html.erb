@@ -1,6 +1,6 @@
 <h2>Add new album to database!</h2>
 
-<form action="<%= albums_url %>" method="POST">
+<form action="<%=albums_url%>" method="POST">
   <%= authenticity_token %>
   <label for="band_name">Band name: </label>
   <select id="band_name" name="album[band_id]">
