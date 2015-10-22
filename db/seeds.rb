@@ -14,7 +14,7 @@
     Album.create!(band_id: i, title: "Band #{i}'s Album #{j}", live: live)
     2.times do |m|
       bonus = (j % 2 != 0)
-      Track.create!(album_id: ((3*i-1)+j), bonus: bonus,
+      Track.create!(album_id: ((3*(i-1))+j), bonus: bonus,
         title: "#{i},#{j},#{m} cats!")
     end
   end
