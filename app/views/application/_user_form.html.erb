@@ -1,0 +1,18 @@
+<% if user.persisted? %>
+  <% action_url = session_url %>
+<% else %>
+  <% action_url = users_url %>
+<% end %>
+
+<form action="<%= action_url %>" method="POST">
+  <%= authenticity_token %>
+  <label for="user_email">Email:</label>
+  <input type="text" value="<%= user.email %>" name="user[email]"
+    id="user_email">
+
+  <label for="user_password">Password:</label>
+  <input type="password" name="user[password]" id="user_password">
+
+  <input type="submit" value="Submit">
+
+</form>

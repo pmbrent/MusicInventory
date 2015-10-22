@@ -7,23 +7,19 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      sessions[:session_token] = @user.session_token
-      redirect_to user_url
+      session[:session_token] = @user.session_token
+      redirect_to user_url(@user.id)
     else
       render :new
     end
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def destroy
 
   end
 
-
-  private
-  def user_params
-    params.require(:user).permit(:email, :password)
-  end
 end
