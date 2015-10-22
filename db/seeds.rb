@@ -19,3 +19,9 @@
     end
   end
 end
+
+20.times do |i|
+  u = i%5
+  t = 3*i % 20
+  Note.create!(user_id: u, track_id: t, content: "I love this song!")
+end
