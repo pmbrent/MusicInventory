@@ -21,11 +21,27 @@ class TracksController < ApplicationController
   end
 
   def destroy
+    t = Track.find(params[:id])
+    album = t.album_id
+    t.delete
+    redirect_to album_url(album)
+  end
+
+  def edit
+    @track = Track.find(params[:id])
+    @curr_band = Album.find(@track.album_id).band
   end
 
   def update
+    @track = Track.find(params[:id])
+    if @track.update(track_params)
+      redirect_to track_url(@track.id)
+    else
+      @curr_band = Album.find(@track.album_id).band
+      render :new
+    end
   end
-  
+
 private
   def track_params
     params.require(:track).permit(:album_id, :title, :bonus, :lyrics)
