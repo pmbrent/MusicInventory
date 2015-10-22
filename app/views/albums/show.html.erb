@@ -1,4 +1,15 @@
 <h1> Track listing for <%= @album.title %> </h2>
+  <form action="<%=album_url(@album.id)%>" method="POST">
+    <%= authenticity_token %>
+    <input type="submit" value="Delete album!"></input>
+    <input type="hidden" name="_method" value="DELETE">
+  </form>
+  <form action="<%=edit_album_url(@album.id)%>" method="GET">
+    <%= authenticity_token %>
+    <input type="hidden" name="_method" value="UPDATE">
+    <input type="submit" value="Edit album"></input>
+  </form>
+  <br><br>
   Click through to view or add lyrics!
 <br>
 <% @album.tracks.each do |track| %>
