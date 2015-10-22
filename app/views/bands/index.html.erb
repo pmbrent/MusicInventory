@@ -1,0 +1,9 @@
+<% Band.all.each do |band| %>
+<a href="<%=band_url(band.id)%>"><%= "#{band.name}'s work" %></a>
+<br>
+<% end %>
+
+<form action="/band/new" method="GET">
+  <%= authenticity_token %>
+  <input type="submit" value="Add Band!">
+</form>

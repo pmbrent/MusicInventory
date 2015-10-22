@@ -1,0 +1,6 @@
+<h1> <%= "Collected works of #{@band.name}" %> </h1>
+
+<% @band.albums.each do |album| %>
+<a href="<%=album_url(album.id)%>"> <%= album.title %> </a>
+<br>
+<% end %>

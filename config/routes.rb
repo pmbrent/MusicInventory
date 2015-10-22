@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
 
   resources :users
+  resources :bands do
+    resources :albums, only: :new
+  end
+
+  resources :albums, except: [:index, :new] do
+    resources :tracks, only: :new
+  end
+
+  resources :track, except: [:index, :new]
+
   resource  :session, only: [:new, :create, :destroy]
 
   root 'users#index'

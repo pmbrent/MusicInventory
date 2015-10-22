@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20151022160804) do
   create_table "tracks", force: :cascade do |t|
     t.integer  "album_id",                   null: false
     t.boolean  "bonus",      default: false, null: false
+    t.string   "title",                      null: false
     t.text     "lyrics"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
