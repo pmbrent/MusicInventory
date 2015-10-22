@@ -1,0 +1,9 @@
+<% User.all.each do |user| %>
+<%= "#{user.email} is sharing with us" %>
+<br>
+<% end %>
+
+<form action="/session/new" method="GET">
+  <%= authenticity_token %>
+  <input type="submit" value="Join in!">
+</form>

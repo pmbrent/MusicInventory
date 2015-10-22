@@ -1,0 +1,12 @@
+<h1>Sign up!</h1>
+
+<form>
+  <%= authenticity_token %>
+  <label value="Email:">
+  <input type="text" value="<%= user.email %>" name="user[email]">
+  </label>
+  <label value="Password:">
+  <input type="password" name="user[password]">
+  </label>
+
+</form>
