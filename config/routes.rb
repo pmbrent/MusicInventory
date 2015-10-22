@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     resources :tracks, only: :new
   end
 
-  resources :tracks, except: [:index, :new]
+  resources :tracks, except: [:index, :new] do
+    resources :notes, only: :new
+  end
+
+  resources :notes, except: [:index, :new]
 
   resource  :session, only: [:new, :create, :destroy]
 

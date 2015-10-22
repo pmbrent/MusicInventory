@@ -1,3 +1,9 @@
 <h2>Welcome! Please log in.</h2>
 
 <%= render "user_form", user: @user %>
+<br><br>
+Or click to
+<form action="<%=new_user_url%>" method="GET">
+  <%=authenticity_token%>
+  <input type="submit" value="Sign up">
+</form>
