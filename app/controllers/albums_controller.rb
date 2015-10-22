@@ -5,6 +5,12 @@ class AlbumsController < ApplicationController
   end
 
   def create
+    @album = Album.new(album_params)
+    if @album.save
+      redirect_to album_url(@album.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -17,4 +23,8 @@ class AlbumsController < ApplicationController
   def update
   end
 
+private
+  def album_params
+    album_params = params.require(:album).permit(:title, :band_id)
+  end
 end
