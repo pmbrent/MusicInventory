@@ -2,7 +2,7 @@
 
 <form action="<%= albums_url %>" method="POST">
   <%= authenticity_token %>
-  <label for="band_name">Band name:</label>
+  <label for="band_name">Band name: </label>
   <select id="band_name" name="album[band_id]">
     <%Band.all.each do |band|%>
       <%if (band.id == params[:band_id].to_i)%>
