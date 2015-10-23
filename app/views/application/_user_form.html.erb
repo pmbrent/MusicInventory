@@ -1,4 +1,4 @@
-<% if user.persisted? %>
+<% if params[:controller] == "sessions" %>
   <% action_url = session_url %>
 <% else %>
   <% action_url = users_url %>

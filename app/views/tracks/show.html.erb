@@ -19,11 +19,8 @@ Lyrics:
 <% end %>
 <b>Notes for <%= @track.title %></b>
 <br><br>
-<% @track.notes.each do |note| %>
-  <%= "\"#{note.content}\"" %>
-  <br>
-  <%= "   -- #{note.user.email}" %>
-  <br>
+<% @track.notes.each do |the_note| %>
+<%= render 'notes/note', note = the_note %>
 <%end%>
 <br><br>
 <%= render '/notes/form', track: @track %>

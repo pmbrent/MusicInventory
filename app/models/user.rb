@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
     SecureRandom::urlsafe_base64
   end
 
-  def self.find_by_credentials(email, password)
-    user = User.find_by_email(email)
-    user.is_password?(password) ? user : nil
+  def self.find_by_credentials(credentials)
+    user = User.find_by_email(credentials[:email])
+    user.is_password?(credentials[:password]) ? user : nil
   end
 
   def password=(password)
@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
 
   def reset_session_token!
     self.session_token = SecureRandom::urlsafe_base64
+    self.save!
   end
 
 private
